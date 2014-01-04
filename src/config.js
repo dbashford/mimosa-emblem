@@ -19,7 +19,7 @@ exports.placeholder = function() {
          "                             # to provide a specific version of Handlebars for Emblem to use\n" +
          "    # helpers:[\"app/template/handlebars-helpers\"]  # the paths from watch.javascriptDir to\n" +
          "                             # the files containing handlebars helper/partial registrations\n" +
-         "    # emberPath: \"vendor/ember\" # location of the Ember library, this is used as a\n" +
+         "    # emberPath: \"vendor/ember\" # AMD path for the Ember library, this is used as a\n" +
          "                             # dependency in the compiled templates.\n";
 };
 

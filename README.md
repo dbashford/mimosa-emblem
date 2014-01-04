@@ -34,4 +34,4 @@ emblem:
 * `extensions`: an array of strings, the extensions of your Emblem files.
 * `handlebars`: Emblem uses Handlebars during compilation, use this property to provide a specific version of Handlebars for Emblem to use. Ex: `emblem.handlebars: require('handlebars')`
 * `helpers`: an array of strings, the paths from `watch.javascriptDir` to the files containing handlebars helper/partial registrations
-* `emberPath`: location of the Ember library, this is used as a dependency in the compiled templates
+* `emberPath`: AMD path for the Ember library, this is used as a dependency in the compiled templates.
