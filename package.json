@@ -1,6 +1,6 @@
 {
   "name": "mimosa-emblem",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "homepage": "https://github.com/dbashford/mimosa-emblem",
   "author": "David Bashford",
   "description": "A Emblem/Ember client template compiler for Mimosa 2.0+",
@@ -25,8 +25,7 @@
   ],
   "dependencies": {
     "emblem": "0.3.6",
-    "handlebars": "1.2.1",
-    "logmimosa": "0.6.0"
+    "handlebars": "1.2.1"
   },
   "license": "MIT",
   "main": "./src",
