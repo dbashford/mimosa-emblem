@@ -1,5 +1,8 @@
 "use strict";
 
+var fs = require( "fs" )
+  , path = require( "path" );
+
 exports.defaults = function() {
   return {
     emblem: {
@@ -32,15 +35,8 @@ exports.validate = function( config, validators ) {
       config.emblem.lib = require( "emblem" );
     }
 
-    if ( !config.emblem.handlebars ) {
-      config.emblem.handlebars = require( "handlebars" );
-    }
-
-    var ec = require( "./resources/ember-compiler" );
-    config.emblem.handlebars = ec.makeHandlebars( config.emblem.handlebars );
-
     if ( validators.isArrayOfStringsMustExist( errors, "emblem.extensions", config.emblem.extensions ) ) {
-      if (config.emblem.extensions.length === 0) {
+      if ( config.emblem.extensions.length === 0 ) {
         errors.push( "emblem.extensions cannot be an empty array");
       }
     }
@@ -48,6 +44,15 @@ exports.validate = function( config, validators ) {
     validators.ifExistsIsArrayOfStrings( errors, "emblem.helpers", config.emblem.helpers );
     validators.ifExistsIsString( errors, "emblem.emberPath", config.emblem.emberPath );
 
+  }
+
+  if ( errors.length === 0 ) {
+    var possibleLocalEmberCompiler = path.join( config.root, "node_modules", "ember-template-compiler" );
+    if ( fs.existsSync( possibleLocalEmberCompiler ) ) {
+      config.emblem.handlebars = require( possibleLocalEmberCompiler ).EmberHandlebars;
+    } else {
+      config.emblem.handlebars = require( "ember-template-compiler" ).EmberHandlebars;
+    }
   }
 
   return errors;
