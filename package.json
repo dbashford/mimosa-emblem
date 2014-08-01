@@ -1,6 +1,6 @@
 {
   "name": "mimosa-emblem",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "homepage": "https://github.com/dbashford/mimosa-emblem",
   "author": "David Bashford",
   "description": "A Emblem/Ember client template compiler for Mimosa 2.0+",
